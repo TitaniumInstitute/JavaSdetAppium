@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Api Testing">
+    <test preserve-order="true" name="User">
+        <classes>
+            <class name="com.ti.restassured.lastdemo.test.UserTest"></class>
+        </classes>
+    </test>
+    <test preserve-order="true" name="Login And Register">
+        <classes>
+            <class name="com.ti.restassured.lastdemo.test.LoginAndRegisterTest"></class>
+        </classes>
+    </test>
+    <test preserve-order="true" name="Resources">
+        <classes>
+            <class name="com.ti.restassured.lastdemo.test.ResourcesTest"></class>
+        </classes>
+    </test>
+</suite>
