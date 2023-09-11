@@ -1,43 +1,39 @@
-package com.ti.selenium.json;
+package com.ti.frameworks.ddt.dataproviders;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import org.testng.annotations.DataProvider;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.LinkedHashMap;
 
-public class JsonDataProvider {
+import static com.ti.frameworks.ddt.config.Constants.JSONS_FOLDER;
+
+public class JSONArrayData {
 
     private static JsonElement jsonElement = null;
-    @DataProvider
-    public Object[][] getData(){
-        return readJson("./src/test/resources/testData3.json", "data 1");
-    }
+    private static JsonArray jsonArray;
 
     // Parse JSON data
-    private static void parseJSON(String filename){
+    private static JsonArray getJSONArray(String filename, String jsonObj){
         // Parse JSON data
         try {
-            jsonElement = JsonParser.parseReader(new FileReader(filename));
+            return JsonParser.parseReader(new FileReader(JSONS_FOLDER+filename))
+                    .getAsJsonObject()
+                    .get(jsonObj)
+                    .getAsJsonArray();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+        return null;
     }
 
-
     // This method uses the GSON library to parse JSON data
-    public static Object[][] readJson(String filename, String jsonObj) {
-        parseJSON(filename);
-
-        assert jsonElement != null;
-        // Get entire JSON object
-        JsonObject jsonMainObj = jsonElement.getAsJsonObject();
+    public static Object[][] getJsonTableArray(String filename, String jsonObj) {
         // Get individual JSON array object
-        JsonArray jsonArray = jsonMainObj.get(jsonObj).getAsJsonArray();
+        jsonArray = getJSONArray(filename,jsonObj);
 
         // Java array to store JSON data
         Object[][] testData = new Object[jsonArray.size()][1];

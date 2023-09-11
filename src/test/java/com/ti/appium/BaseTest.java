@@ -1,49 +1,59 @@
 package com.ti.appium;
 
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.options.UiAutomator2Options;
-import io.appium.java_client.remote.AutomationName;
+import com.ti.appium.patronesdediseño.pf.screens.LoginScreen;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
+import org.baseiumobile.BaseScreen;
+import org.baseiumobile.DeviceOSType;
+import org.baseiumobile.MobileDriverFactory;
+import org.baseiumobile.model.DriverOptions;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URISyntaxException;
+import java.util.HashMap;
+import java.util.Map;
 
-public class BaseTest {
-
-    //Ejecutar emulador desde linea de comandos
-    // emulator -avd Pixel_7_Pro_API_33
-    // emulator -avd nightwatch-android-11
-    public AndroidDriver androidDriver;
+public class BaseTest extends BaseScreen {
     AppiumDriverLocalService service;
-
+    Map<String, String> userCredentials = new HashMap<>();
     @BeforeTest
-    public void setUp() throws URISyntaxException, MalformedURLException {
+    @Parameters({"deviceOsType","appName","ipAddress","deviceName","port","udid"})
+    public void setup(String deviceOsType, String appName, String ipAddress, String deviceName, @Optional("port")String port, @Optional("udid")String udid){
+    //public void setup(String ... deviceSetup){
+        DriverOptions options = new DriverOptions();
+        options.setAppName(appName)
+                .setDeviceName(deviceName)
+                .setAppActivity("com.swaglabsmobileapp.MainActivity")
+                .setPort(port)
+                .setUdid(udid);
+
         service = new AppiumServiceBuilder()
-                .withArgument(()->"--use-plugins","element-wait@2.0.3,gestures@3.0.0")
-                .withEnvironment(System.getenv())
-                .withIPAddress("127.0.0.1")
-                .usingPort(4723)
+                .withArgument(() -> "--use-plugins", "element-wait@2.0.3,gestures@3.0.0")
+                .withIPAddress(ipAddress)
+                .usingAnyFreePort()
                 .build();
-
         service.start();
-        UiAutomator2Options options = new UiAutomator2Options();
-        options.setAppWaitActivity("com.androidsample.generalstore.SplashActivity");//"com.androidsample.generalstore/com.androidsample.generalstore.SplashActivity");
-        options.setPlatformName("Android");
-        options.setAutomationName(AutomationName.ANDROID_UIAUTOMATOR2);
-        options.setDeviceName("Pixel 7 Pro API 33");
-        //options.setApp(System.getProperty("user.dir")+"/src/test/resources/apps/ApiDemos-debug.apk");
-        options.setApp(System.getProperty("user.dir")+"/src/test/resources/apps/General-Store.apk");
 
-        androidDriver = new AndroidDriver(new URI("http://127.0.0.1:4723/").toURL(),options);
+
+        MobileDriverFactory.getInstance().setMobileDriver(DeviceOSType.valueOf(deviceOsType),options);
+
+        //Arrange
+        userCredentials.put("username", "standard_user");
+        userCredentials.put("password", "secret_sauce");
+
+        actualScreen = getInstance(LoginScreen.class);
+        actualScreen.as(LoginScreen.class)
+                .loginAs(userCredentials.get("username"))
+                .withPassword(userCredentials.get("password"))
+                .submitLogin();
     }
 
     @AfterTest
-    public void turnDown(){
-        androidDriver.quit();
+    public void turndown(){
+        MobileDriverFactory.getInstance().removeMobileDriver();
         service.stop();
     }
 }

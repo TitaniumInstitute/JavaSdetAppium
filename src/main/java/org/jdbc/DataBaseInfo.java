@@ -6,7 +6,7 @@ public enum DataBaseInfo {
     DB_USERNAME(PropertyManager.getInstance().getProperty("DBUserName")),
     DB_PASSWORD(PropertyManager.getInstance().getProperty("DBPassword"));
 
-    final String dbConn;
+    public final String dbConn;
     DataBaseInfo(String dbConn) {
         this.dbConn = dbConn;
     }

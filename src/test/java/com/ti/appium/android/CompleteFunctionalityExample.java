@@ -1,9 +1,9 @@
-package com.ti.appium;
+package com.ti.appium.android;
 
 import io.appium.java_client.AppiumBy;
 import org.testng.annotations.Test;
 
-public class CompleteFunctionalityExample extends BaseTest{
+public class CompleteFunctionalityExample extends AndroidBaseTest {
 
     @Test
     void fillFirstPage(){

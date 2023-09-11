@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" parallel="tests">
+<!--<suite name="All Test Suite" >-->
+    <parameter name="ipAddress" value="127.0.0.1"/>
+    <test name="Android Emulator one Test">
+        <parameter name="appName" value="Android.SauceLabs.Mobile.Sample.apk"/>
+        <parameter name="deviceName" value="S21 plus API 30"/>
+        <parameter name="deviceOsType" value="ANDROID"/>
+        <parameter name="port" value="8201"/>
+        <parameter name="udid" value="emulator-5556"/>
+        <classes>
+            <class name="com.ti.appium.patronesdediseño.pf.testcases.SauceLabLoginTests"></class>
+        </classes>
+    </test>
+
+    <test name="Android Emulator two Test">
+        <parameter name="appName" value="Android.SauceLabs.Mobile.Sample.apk"/>
+        <parameter name="deviceName" value="nightwatch-android-11"/>
+        <parameter name="deviceOsType" value="ANDROID"/>
+        <parameter name="port" value="8202"/>
+        <parameter name="udid" value="emulator-5554"/>
+        <classes>
+            <class name="com.ti.appium.patronesdediseño.pf.testcases.SauceLabLoginTests"></class>
+        </classes>
+    </test>
+
+    <test name="iOS Test">
+        <parameter name="appName" value="iOS.Simulator.SauceLabs.Mobile.Sample.zip"/>
+        <parameter name="deviceName" value="iPhone 14"/>
+        <parameter name="deviceOsType" value="IOS"/>
+        <classes>
+            <class name="com.ti.appium.patronesdediseño.pf.testcases.SauceLabLoginTests"></class>
+        </classes>
+    </test>
+</suite>

@@ -1,10 +1,10 @@
-package com.ti.appium;
+package com.ti.appium.android;
 
 import io.appium.java_client.AppiumBy;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class FindingElements extends BaseTest{
+public class FindingElements extends AndroidBaseTest {
 
     @Test
     void accessibilityExample() throws InterruptedException {

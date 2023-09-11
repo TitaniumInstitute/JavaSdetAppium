@@ -1,4 +1,4 @@
-package com.ti.appium;
+package com.ti.appium.android;
 
 import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumBy;
@@ -8,7 +8,7 @@ import org.openqa.selenium.DeviceRotation;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class AppiumActionsExample extends BaseTest{
+public class AppiumActionsExample extends AndroidBaseTest {
     @Test
     void Miscellaneous(){
         //App package & App Activity
