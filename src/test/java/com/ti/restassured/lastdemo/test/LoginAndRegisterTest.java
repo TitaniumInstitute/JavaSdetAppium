@@ -3,9 +3,8 @@ package com.ti.restassured.lastdemo.test;
 import org.apache.http.HttpStatus;
 import org.testng.annotations.Test;
 
-import static org.apibase.RestAssuredUtils.postItem;
-import static org.apibase.RestAssuredUtils.postWithBody;
-import static org.apibase.ServiceFactory.*;
+import static com.ti.apibase.RestAssuredUtils.postWithBody;
+import static com.ti.apibase.ServiceFactory.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
@@ -34,7 +33,7 @@ public class LoginAndRegisterTest extends BaseTest{
     @Test
     void verifyLogoutSuccess(){
         setEndPoint("logout/");
-        setResponse(postItem());
+        //setResponse(postItem());
         response = getResponse();
         //response = postItem();
         System.out.println(response.getStatusCode());

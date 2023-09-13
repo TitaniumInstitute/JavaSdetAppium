@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-import static com.ti.frameworks.ddt.config.Constants.WORKBOOKS_FOLDER;
+import static com.ti.frameworks.config.Constants.WORKBOOKS_FOLDER;
 
 public class ExcelArrayData {
     private static Sheet excelWSheet;
@@ -67,7 +67,7 @@ public class ExcelArrayData {
         List<String> data = new ArrayList<>();
         Iterable<Cell> columns = row::cellIterator;
         for (Cell column : columns) {
-            data.add(column.equals("empty")?"":dataFormatter.formatCellValue(column));
+            data.add(column.toString().equalsIgnoreCase("empty")?"":dataFormatter.formatCellValue(column));
         }
         return data;
     }

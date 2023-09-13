@@ -3,15 +3,14 @@ package com.ti.restassured.lastdemo.test;
 import com.ti.restassured.lastdemo.model.resource.Resource;
 import com.ti.restassured.lastdemo.model.resource.Resources;
 import org.apache.http.HttpStatus;
-import org.apibase.ServiceFactory;
+import com.ti.apibase.ServiceFactory;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import static org.apibase.RestAssuredUtils.deleteItem;
-import static org.apibase.RestAssuredUtils.putItem;
+import static com.ti.apibase.RestAssuredUtils.deleteElement;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
@@ -38,7 +37,7 @@ public class ResourcesTest extends BaseTest {
     void verifyResourceIsUpdated(){
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("uuuu-MM-dd");
         LocalDateTime now = LocalDateTime.now();
-        ServiceFactory.setResponse(putItem());
+        //ServiceFactory.setResponse(putItem());
 
         response = ServiceFactory.getResponse();
         String updatedAt = response.body().jsonPath().get("updatedAt").toString();
@@ -51,7 +50,7 @@ public class ResourcesTest extends BaseTest {
 
     @Test(priority = 3)
     void verifyResourceIsDeleted(){
-        ServiceFactory.setResponse(deleteItem());
+        ServiceFactory.setResponse(deleteElement());
         response = ServiceFactory.getResponse();
         //response = deleteItem();
         //System.out.println(response.getStatusCode());

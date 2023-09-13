@@ -1,15 +1,15 @@
 package com.ti.restassured.services;
 
+import com.ti.apibase.RestAssuredUtilsOld;
 import com.ti.restassured.lastdemo.model.user.User;
 import io.restassured.response.Response;
 import io.restassured.response.ResponseOptions;
-import org.apibase.IRestResponse;
-import org.apibase.RestAssuredUtils;
-import org.apibase.RestResponse;
+import com.ti.apibase.IRestResponse;
+import com.ti.apibase.RestResponse;
 
 import java.util.Map;
 
-public class UserService extends RestAssuredUtils {
+public class UserService extends RestAssuredUtilsOld {
 
     private static ResponseOptions<Response> response;
 
@@ -18,7 +18,7 @@ public class UserService extends RestAssuredUtils {
     }
 
     public static IRestResponse<User> getUserInformation(String id){
-        response = getItems("users/" + id);
+        response = getElements("users/" + id);
         return new RestResponse(User.class,response);
     }
 }

@@ -1,7 +1,7 @@
 package com.ti.frameworks.ddt.dataproviders;
 
 import lombok.SneakyThrows;
-import org.jdbc.DataBaseInfo;
+import com.ti.jdbc.DataBaseInfo;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.*;
 
-import static com.ti.frameworks.ddt.config.Constants.QUERIES_FOLDER;
+import static com.ti.frameworks.config.Constants.QUERIES_FOLDER;
 
 public class SQLArrayData {
     private static Connection connection;

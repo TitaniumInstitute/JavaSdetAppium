@@ -1,11 +1,11 @@
 package com.ti.restassured.lastdemo.test;
 
+import com.ti.apibase.BaseModel;
+import com.ti.apibase.IRestResponse;
+import com.ti.apibase.RestAssuredUtils;
 import com.ti.restassured.lastdemo.model.user.User;
 import io.restassured.response.Response;
 import io.restassured.response.ResponseOptions;
-import org.apibase.BaseModel;
-import org.apibase.IRestResponse;
-import org.apibase.RestAssuredUtils;
 import org.testng.annotations.BeforeTest;
 
 import java.util.LinkedHashMap;

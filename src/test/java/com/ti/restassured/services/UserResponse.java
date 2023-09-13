@@ -1,15 +1,15 @@
 package com.ti.restassured.services;
 
+import com.ti.apibase.IRestResponse;
+import com.ti.apibase.RestAssuredUtilsOld;
+import com.ti.apibase.RestResponse;
 import com.ti.restassured.dao.UserGorest;
 import io.restassured.response.Response;
 import io.restassured.response.ResponseOptions;
-import org.apibase.IRestResponse;
-import org.apibase.RestAssuredUtils;
-import org.apibase.RestResponse;
 
 import java.util.Map;
 
-public class UserResponse extends RestAssuredUtils {
+public class UserResponse extends RestAssuredUtilsOld {
 
     private static ResponseOptions<Response> response;
 
@@ -18,7 +18,7 @@ public class UserResponse extends RestAssuredUtils {
     }
 
     public static IRestResponse<UserGorest> getUsers(){
-        response = getItems("users");
+        response = getElements("users");
         return new RestResponse(UserGorest.class, response);
     }
 
@@ -33,7 +33,7 @@ public class UserResponse extends RestAssuredUtils {
     }
 
     public static IRestResponse<UserGorest> deleteUser(String user){
-        response = deleteItem("users/"+user);
+        response = deleteElement("users/"+user);
         return new RestResponse(UserGorest.class, response);
     }
 }

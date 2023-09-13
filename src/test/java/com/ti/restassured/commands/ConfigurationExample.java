@@ -9,7 +9,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import static io.restassured.config.RedirectConfig.redirectConfig;
-import static org.apibase.ConfigFactory.getDefaultConfig;
+import static com.ti.apibase.ConfigFactory.getDefaultConfig;
 import static org.hamcrest.CoreMatchers.equalTo;
 
 public class ConfigurationExample {

@@ -1,13 +1,12 @@
 package com.ti.appium;
 
 import com.ti.appium.patronesdediseño.pf.screens.LoginScreen;
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
-import org.baseiumobile.BaseScreen;
-import org.baseiumobile.DeviceOSType;
-import org.baseiumobile.MobileDriverFactory;
-import org.baseiumobile.model.DriverOptions;
+import com.ti.baseiumobile.BaseScreen;
+import com.ti.baseiumobile.DeviceOSType;
+import com.ti.baseiumobile.MobileDriverFactory;
+import com.ti.baseiumobile.model.DriverOptions;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Optional;

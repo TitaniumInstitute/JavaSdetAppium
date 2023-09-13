@@ -74,7 +74,7 @@ public class ExtentReportExample{
         driver.manage().window().maximize();
         extentReports = new ExtentReports();
         extentSparkReporter = new ExtentSparkReporter("results/TIReport.html");
-        extentSparkReporter.loadJSONConfig(new File("./src/main/resources/extent-report-testData.json"));
+        extentSparkReporter.loadJSONConfig(new File("./src/main/resources/extent-report-ApiUser.json"));
         extentReports.attachReporter(extentSparkReporter);
     }
 

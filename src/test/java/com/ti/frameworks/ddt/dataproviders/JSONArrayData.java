@@ -9,7 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.LinkedHashMap;
 
-import static com.ti.frameworks.ddt.config.Constants.JSONS_FOLDER;
+import static com.ti.frameworks.config.Constants.JSONS_FOLDER;
 
 public class JSONArrayData {
 

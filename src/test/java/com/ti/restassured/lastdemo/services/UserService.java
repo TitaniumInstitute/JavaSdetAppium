@@ -1,10 +1,10 @@
 package com.ti.restassured.lastdemo.services;
 
+import com.ti.apibase.IRestResponse;
+import com.ti.apibase.RestAssuredUtils;
+import com.ti.apibase.RestResponse;
+import com.ti.apibase.ServiceFactory;
 import com.ti.restassured.lastdemo.model.user.User;
-import org.apibase.IRestResponse;
-import org.apibase.RestAssuredUtils;
-import org.apibase.RestResponse;
-import org.apibase.ServiceFactory;
 
 import java.util.Map;
 
@@ -15,7 +15,7 @@ public class UserService extends RestAssuredUtils {
     }
 
     public static IRestResponse<User> getUserInformation(){
-        ServiceFactory.setResponse(getItems());
+       // ServiceFactory.setResponse(getItems());
         //response = getItems("users/" + id);
         return new RestResponse(User.class,ServiceFactory.getResponse());
     }

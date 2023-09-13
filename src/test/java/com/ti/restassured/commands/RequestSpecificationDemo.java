@@ -5,7 +5,7 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.specification.RequestSpecification;
 import org.testng.annotations.Test;
 
-import static org.apibase.ConfigFactory.getDefaultConfig;
+import static com.ti.apibase.ConfigFactory.getDefaultConfig;
 
 public class RequestSpecificationDemo {
     private static final String BASE_URL = "https://gorest.co.in/public/v2/";

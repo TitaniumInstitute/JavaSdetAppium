@@ -1,9 +1,9 @@
 package com.ti.restassured.lastdemo.test;
 
+import com.ti.apibase.ServiceFactory;
 import com.ti.restassured.lastdemo.model.user.User;
 import com.ti.restassured.lastdemo.model.user.Users;
 import org.apache.http.HttpStatus;
-import org.apibase.ServiceFactory;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -13,8 +13,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import static org.apibase.RestAssuredUtils.deleteItem;
-import static org.apibase.RestAssuredUtils.putWithBody;
+import static com.ti.apibase.RestAssuredUtils.putWithBody;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
@@ -68,7 +67,7 @@ public class UserTest extends BaseTest{
     @Test(priority = 3)
     void verifyUserIsDeleted(){
         //setEndPoint("users/"+id);
-        ServiceFactory.setResponse(deleteItem());
+        //ServiceFactory.setResponse(deleteItem());
         response = ServiceFactory.getResponse();
         //response = deleteItem();
         //System.out.println(response.getStatusCode());

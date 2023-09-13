@@ -2,7 +2,7 @@ package com.ti.restassured.lastdemo.model.resource;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.ti.restassured.lastdemo.model.Support;
-import org.apibase.BaseModel;
+import com.ti.apibase.BaseModel;
 
 @lombok.Data
 public class Data extends BaseModel {

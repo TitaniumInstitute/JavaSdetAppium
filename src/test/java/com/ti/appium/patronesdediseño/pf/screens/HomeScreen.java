@@ -2,7 +2,7 @@ package com.ti.appium.patronesdediseño.pf.screens;
 
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
-import org.baseiumobile.BaseScreen;
+import com.ti.baseiumobile.BaseScreen;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.CacheLookup;
 

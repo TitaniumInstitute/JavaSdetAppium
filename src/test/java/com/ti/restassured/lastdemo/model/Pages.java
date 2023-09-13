@@ -2,7 +2,7 @@ package com.ti.restassured.lastdemo.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-import org.apibase.BaseModel;
+import com.ti.apibase.BaseModel;
 
 @Data
 public class Pages extends BaseModel {

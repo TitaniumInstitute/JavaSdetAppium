@@ -1,10 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="NavigationSuite" >
-    <test name="ChromeTest">
+<suite name="NavigationSuite" parallel="tests">
+    <listeners>
+        <listener class-name="com.ti.AnnotationTransform"></listener>
+    </listeners>
+    <test name="Web UI Test" parallel="classes">
         <parameter name="browser" value="CHROME"/>
         <classes>
-            <class name="com.ti.frameworks.ddt.testcases.webui.SchoolLoginTest"/>
+            <class name="com.ti.frameworks.ddt.testcases.webui.SchoolLoginTestJSON"/>
+            <class name="com.ti.frameworks.ddt.testcases.webui.SchoolLoginTestExcel"/>
+        </classes>
+    </test>
+
+    <test name="API Test">
+        <parameter name="endpoint" value="users/"></parameter>
+        <classes>
+            <class name="com.ti.frameworks.ddt.testcases.api.ResreqUserTestJSON"/>
+        </classes>
+    </test>
+
+    <test name="Android Emulator Test">
+        <parameter name="ipAddress" value="127.0.0.1"/>
+        <parameter name="appName" value="Android.SauceLabs.Mobile.Sample.apk"/>
+        <parameter name="deviceName" value="S21 plus API 30"/>
+        <parameter name="deviceOsType" value="ANDROID"/>
+        <parameter name="port" value="8201"/>
+        <parameter name="udid" value="emulator-5554"/>
+        <classes>
+            <class name="com.ti.frameworks.ddt.testcases.mobileui.SauceLabLoginTestsJSON"></class>
+        </classes>
+    </test>
+    <test name="iOS Simulator Test">
+        <parameter name="ipAddress" value="127.0.0.1"/>
+        <parameter name="appName" value="iOS.Simulator.SauceLabs.Mobile.Sample.zip"/>
+        <parameter name="deviceName" value="iPhone 14"/>
+        <parameter name="deviceOsType" value="IOS"/>
+        <classes>
+            <class name="com.ti.frameworks.ddt.testcases.mobileui.SauceLabLoginTestsJSON"></class>
         </classes>
     </test>
 </suite>
