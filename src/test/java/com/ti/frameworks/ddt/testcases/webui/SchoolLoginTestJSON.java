@@ -12,7 +12,7 @@ import java.util.LinkedHashMap;
 import static com.ti.frameworks.ddt.dataproviders.ExcelArrayData.getExcelTableArray;
 import static com.ti.frameworks.ddt.dataproviders.JSONArrayData.getJsonTableArray;
 
-public class SchoolLoginTestJSON extends BaseWebTest{
+public class SchoolLoginTestJSON extends BaseWebTest {
     static Object[][] testObjArray;
     @DataProvider
     public Object[][] getJSONProviderData(Method method) throws IOException {

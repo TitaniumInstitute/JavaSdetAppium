@@ -11,7 +11,7 @@ import java.util.LinkedHashMap;
 
 import static com.ti.frameworks.ddt.dataproviders.ExcelArrayData.getExcelTableArray;
 
-public class SchoolLoginTestExcel extends BaseWebTest{
+public class SchoolLoginTestExcel extends BaseWebTest {
     static Object[][] testObjArray;
     @DataProvider
     public Object[][] getExcelProviderData(Method method) throws IOException {

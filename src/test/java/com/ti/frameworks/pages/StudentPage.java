@@ -1,6 +1,7 @@
 package com.ti.frameworks.pages;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -12,28 +13,40 @@ import java.util.List;
 
 public class StudentPage extends MainPage {
     @FindBy(name = "s_gender")
+    @CacheLookup
     private List<WebElement> rdnGenders;
     @FindBy(id = "firstname")
+    @CacheLookup
     private WebElement txtFirstName;
     @FindBy(id = "lastname")
+    @CacheLookup
     private WebElement txtLastName;
     @FindBy(name = "s_dob")
+    @CacheLookup
     private WebElement dtpDateOfBirth;
     @FindBy(className = "day")
+    @CacheLookup
     private List<WebElement> tdSelectDays;
     @FindBy(id = "current_address")
+    @CacheLookup
     private WebElement txtCurrentAddress;
     @FindBy(name = "s_pcountry")
+    @CacheLookup
     private WebElement drpCountry;
     @FindBy(id = "Email")
+    @CacheLookup
     private WebElement txtEmail;
     @FindBy(name = "Username")
+    @CacheLookup
     private WebElement txtUserName;
     @FindBy(id = "Password")
+    @CacheLookup
     private WebElement txtPassword;
     @FindBy(id = "ConfirmPassword")
+    @CacheLookup
     private WebElement txtConfirmPass;
     @FindBy(id = "Rollno")
+    @CacheLookup
     private WebElement txtRollNumber;
     @FindBy(xpath = "//tr[@role='row']")
     private List<WebElement> trStudentRows;
